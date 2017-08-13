@@ -10,15 +10,17 @@ import (
 )
 
 const (
-	// BANNER is what is printed for help/info output
-	BANNER = `                 _                 _        _                _
-  __ _ _ __ ___ (_) ___ ___  _ __ | |_ __ _(_)_ __   ___  __| |
- / _` + "`" + ` | '_ ` + "`" + ` _ \| |/ __/ _ \| '_ \| __/ _` + "`" + ` | | '_ \ / _ \/ _` + "`" + ` |
-| (_| | | | | | | | (_| (_) | | | | || (_| | | | | |  __/ (_| |
- \__,_|_| |_| |_|_|\___\___/|_| |_|\__\__,_|_|_| |_|\___|\__,_|
- Container introspection tool.
- Version: %s
-`
+	// TETRACON banner
+	TETRACON = `
+_________    __
+|__    __|   | |
+   |  |  ___ | |_   ____  ___   ___ ___  _ __ 
+   |  | / _ \|  _| /  __|/ _ \ / __/ _ \| '_ \
+   |  |   __/| |_  | |  | (_| | (_| (_) | | | | 
+   |__| \___| \__| |_|   \__,_|\___\___/|_| |_| 
+   version: %s
+   
+   `
 )
 
 var (
@@ -34,7 +36,7 @@ func init() {
 	flag.BoolVar(&debug, "d", false, "run in debug mode")
 
 	flag.Usage = func() {
-		fmt.Fprint(os.Stderr, fmt.Sprintf(BANNER, version.NewVersion()))
+		fmt.Fprint(os.Stderr, fmt.Sprintf(TETRACON, version.NewVersion()))
 		flag.PrintDefaults()
 	}
 
@@ -46,7 +48,7 @@ func init() {
 	}
 
 	if vrsn {
-		fmt.Printf("flag version %s", version.NewVersion())
+		fmt.Printf("flag version %s\n", version.NewVersion())
 		os.Exit(0)
 	}
 
@@ -70,7 +72,7 @@ func init() {
 // here we go
 func main() {
 	fmt.Println("Start...")
-	fmt.Printf("End...%s\n", version.NewVersion())
+	fmt.Println("End...")
 }
 
 //
